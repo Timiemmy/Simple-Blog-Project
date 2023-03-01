@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="container col-pr-2">
+    <div class="row g-8 px-0">
+        <div class="col-md-8 px-2 row p-5">
+            <article class="blog-post">
+                <h2 class="blog-post-title mb-3">{{post.title}}</h2>
+                <p class="blog-post-meta">{{post.publish}} by <a href="#">{{post.author}}</a></p>
+                <p>{{post.content| linebreaks}}</p>
+            </article>
+        </div>
+        <div class="col-md-4 px-2 ms-3">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="fst-italic">About</h4>
+                <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
