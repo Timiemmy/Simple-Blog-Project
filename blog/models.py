@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Adding Publish manager which will allow us to retrieve all post using the notion Post.published.all() in views
 
@@ -21,12 +22,12 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(
-        max_length=2, choices=Status.choices, default=Status.DRAFT)
+        max_length=2, choices=Status.choices, default=Status.PUBLISHED)
 
     objects = models.Manager()
     published = PublishedManager()

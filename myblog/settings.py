@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_ID = 1  # For sitemap also
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +38,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Third party apps
+    "ckeditor",
+    'crispy_forms',
+
+    # For adding sitemaps
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+
     "blog",
+
 ]
 
 MIDDLEWARE = [
@@ -123,3 +132,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_TEMPLATE_ALLOWED_PACK = 'bootstrap5'
