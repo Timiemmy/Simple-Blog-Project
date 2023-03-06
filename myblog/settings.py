@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +49,9 @@ INSTALLED_APPS = [
     # For adding sitemaps
     "django.contrib.sites",
     "django.contrib.sitemaps",
+
+    # For search lookkup
+    "django.contrib.postgres",
 
     "blog",
 
@@ -83,14 +90,32 @@ WSGI_APPLICATION = "myblog.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+# If you want to use sqlite, uncomment it
+'''
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+'''
 
+# imput your postgres database here and uncomment
+''''
+DATABASES = {
+    'default': {
+
+        'ENGINE': 
+        'NAME': 
+        'USER': 
+        'PASSWORD': 
+        'HOST': 
+        'PORT': 
+
+
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
